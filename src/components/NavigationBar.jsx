@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import MoviedbLogo from '../images/moviedblogo.svg';
+import UserLogo from '../images/userlogo.svg';
 
 const NavigationBar = () =>
     <Navbar bg="dark" variant="dark">
@@ -40,6 +41,15 @@ const NavigationBar = () =>
                 </Row>
             </Form>
 
+            <Nav.Link href="/login">
+                <img
+                    src={UserLogo}
+                    width="30"
+                    height="30"
+                    className="d-inline-block align-top"
+                    alt="User Logo"
+                />
+            </Nav.Link>
         </Container>
     </Navbar>;
 
