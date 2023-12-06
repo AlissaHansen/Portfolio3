@@ -1,8 +1,9 @@
 import React from "react";
+import MovieCarousel from "./MovieCarousel";
 
 const Home = () => 
 <div>
-    <h1>Home screen</h1>
+    <MovieCarousel />
 </div>;
 
 export default Home;
