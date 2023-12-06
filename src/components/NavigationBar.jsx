@@ -23,22 +23,23 @@ const NavigationBar = () =>
             <Navbar.Brand href="/">MovieDB</Navbar.Brand>
             <Nav className="me-auto">
                 <Nav.Link href="/movies">Movies</Nav.Link>
-                
-                <Form inline>
-                    <Row>
-                        <Col xs="auto" className="ml-auto">
-                            <Form.Control
-                                type="text"
-                                placeholder="Search"
-                                className=" mr-sm-2"
-                            />
-                        </Col>
-                        <Col xs="auto">
-                            <Button type="submit">Submit</Button>
-                        </Col>
-                    </Row>
-                </Form>
             </Nav>
+
+            <Form inline className="my-2 my-lg-0">
+                <Row>
+                    <Col xs="auto" className="ml-auto">
+                        <Form.Control
+                            type="text"
+                            placeholder="Search"
+                            className="mr-sm-2"
+                        />
+                    </Col>
+                    <Col xs="auto">
+                        <Button type="submit">Search</Button>
+                    </Col>
+                </Row>
+            </Form>
+
         </Container>
     </Navbar>;
 
