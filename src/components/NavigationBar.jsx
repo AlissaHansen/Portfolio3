@@ -34,6 +34,7 @@ const NavigationBar = () =>
                             type="text"
                             placeholder="Search"
                             className="mr-sm-2"
+                            style={{ width: '300px' }}
                         />
                     </Col>
                     <Col xs="auto">
