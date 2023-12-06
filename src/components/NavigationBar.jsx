@@ -8,6 +8,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import MoviedbLogo from '../images/moviedblogo.svg';
 import UserLogo from '../images/userlogo.svg';
+import '../NavigationBar.css';
 
 const NavigationBar = () =>
     <Navbar bg="dark" variant="dark">
@@ -36,7 +37,7 @@ const NavigationBar = () =>
                         />
                     </Col>
                     <Col xs="auto">
-                        <Button type="submit">Search</Button>
+                        <Button type="submit" className="search-button">Search</Button>
                     </Col>
                 </Row>
             </Form>
@@ -44,8 +45,8 @@ const NavigationBar = () =>
             <Nav.Link href="/login">
                 <img
                     src={UserLogo}
-                    width="30"
-                    height="30"
+                    width="40"
+                    height="40"
                     className="d-inline-block align-top"
                     alt="User Logo"
                 />
