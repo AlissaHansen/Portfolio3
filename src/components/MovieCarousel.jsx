@@ -1,7 +1,7 @@
 import React from "react";
 import Carousel from 'react-bootstrap/Carousel';
 import OppenheimerImage from '../images/oppenheimerImage.jpeg';
-import BarbieImage from '../images/barbieImage.jpg';
+import AvatarImage from '../images/avatar2Image.jpg';
 import FightclubImage from '../images/fightclubImage.jpg';
 import '../CarouselStylesheet.css';
 
@@ -22,12 +22,12 @@ const MovieCarousel = () => (
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src={BarbieImage}
+          src={AvatarImage}
           alt="Second slide"
         />
         <Carousel.Caption>
-          <h2 style={{ color: 'black' }}>BARBIE</h2>
-          <p style={{ color: 'black' }}>Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world of Barbie Land. However, when they get a chance to go to the real world, they soon discover the joys and perils of living among humans.</p>
+          <h2>AVATAR 2</h2>
+          <p>Jake Sully and Ney'tiri have formed a family and are doing everything to stay together. However, they must leave their home and explore the regions of Pandora. When an ancient threat resurfaces, Jake must fight a difficult war against the humans.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
