@@ -1,35 +1,78 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
-import AvatarImage from '../images/avatar2Image.jpg'
+import AvatarImage from '../images/avatar2Image.jpg';
 import '../Stylesheets/GeneralStylesheet.css';
 
+const Login = () => {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
 
-const Login = () =>
+    const handleSubmit = (event) => {
+        event.preventDefault();
 
-    <div className="Outer-login-container">
+        const apiUrl = "http://localhost:5001/api/users/login";
 
-        <div className="Left-container">
-            <img src={AvatarImage} className="App-logo" alt="logo" />
+        const formData = {
+            UserId: username,
+            Password: password,
+        };
+
+        fetch(apiUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log("API Response:", data);
+            if (data.userId && data.token) {
+                console.log("GODT LOGIN!!. User ID:", data.userId);
+            } else {
+                console.log("KUNNE IKKE LOGGE IND!!");
+            }
+        })
+        .catch((error) => {
+            console.error("SENDE FEJL", error);
+        });
+    };
+
+    return (
+        <div className="Outer-login-container">
+            <div className="Left-container">
+                <img src={AvatarImage} className="App-logo" alt="logo" />
+            </div>
+            <div className="Login-container">
+                <h2 className="Login-header">MovieDB</h2>
+                <Form onSubmit={handleSubmit}>
+                    <FloatingLabel controlId="floatingInput" label="Username" className="mb-3">
+                        <Form.Control
+                            type="text"
+                            placeholder="username"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                        />
+                    </FloatingLabel>
+
+                    <FloatingLabel controlId="floatingPassword" label="Password">
+                        <Form.Control
+                            type="password"
+                            placeholder="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </FloatingLabel>
+
+                    <Button className="Login-button" variant="dark" type="submit">
+                        Login
+                    </Button>
+                </Form>
+            </div>
         </div>
-
-        <div className="Login-container">
-            <h2 className="Login-header">MovieDB</h2>
-            <Form>
-                <FloatingLabel controlId="floatingInput" label="Email address" className="mb-3">
-                    <Form.Control type="email" placeholder="name@example.com" />
-                </FloatingLabel>
-
-                <FloatingLabel controlId="floatingPassword" label="Password">
-                    <Form.Control type="password" placeholder="Password" />
-                </FloatingLabel>
-
-                <Button className="Login-button" variant="dark" type="submit">
-                    Login
-                </Button>
-            </Form>
-        </div>
-    </div>
+    );
+};
 
 export default Login;
