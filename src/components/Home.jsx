@@ -3,7 +3,6 @@ import MovieCarousel from "./MovieCarousel";
 import MovieListComponent from "./MovieListComponenet";
 import '../Stylesheets/GeneralStylesheet.css';
 
-
 const Home = () => 
 <div>
     <MovieCarousel />
