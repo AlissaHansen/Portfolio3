@@ -11,7 +11,7 @@ import UserLogo from '../images/userlogo.svg';
 import '../NavigationBar.css';
 
 const NavigationBar = () => (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
         <Container>
             <Navbar.Brand href="/">
                 <img

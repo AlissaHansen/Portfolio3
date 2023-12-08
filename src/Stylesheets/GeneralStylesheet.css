@@ -1,3 +1,15 @@
+body {
+    background-color: #111;
+}
+
 .Cards-outer-div {
     display: flex;
+    justify-content: space-evenly;
+}
+.Movies-headline {
+    color: white;
+    margin-left: 1.3em;
+    font-size: 35px;
+    padding-bottom: 0.7em;
+    padding-top: 1em;
 }
