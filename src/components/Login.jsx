@@ -35,6 +35,7 @@ const Login = () => {
             if (data.userId && data.token) {
                 localStorage.setItem("userId", data.userId);
                 navigate("/");
+                window.location.reload();
             } else {
                 setError("Invalid username or password...");
                 setPassword("");
