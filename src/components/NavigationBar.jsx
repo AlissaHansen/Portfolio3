@@ -58,10 +58,10 @@ const NavigationBar = () => {
                                 src={UserLogo}
                                 width="40"
                                 height="40"
-                                className="d-inline-block align-top"
+                                className="d-inline-block"
                                 alt="User Logo"
                             />
-                            <Navbar.Text>
+                            <Navbar.Text className="Username-display">
                                 {userId}
                             </Navbar.Text>
                         </Nav.Link>
