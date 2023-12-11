@@ -8,7 +8,7 @@ const MovieListComponent = ({ title, count, ranked }) => {
         const loadMovies = () => {
             const url = ranked
                 ? "http://localhost:5001/api/movieinfos?ranked=true&pagesize=" + count
-                : "http://localhost:5001/api/movieinfos?pagesize=" + count   
+                : "http://localhost:5001/api/movieinfos?newest=true&pagesize=" + count   
 
             fetch (url)
                 .then((res) => res.json())
