@@ -43,3 +43,6 @@ body {
     padding-top: 20px;
     padding-bottom: 20px;
 }
+.Login-error-message {
+    color: red;
+}
