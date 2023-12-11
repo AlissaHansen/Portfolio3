@@ -10,44 +10,48 @@ import MoviedbLogo from '../images/moviedblogo.svg';
 import UserLogo from '../images/userlogo.svg';
 import '../NavigationBar.css';
 
-const NavigationBar = () => (
-    <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
-        <Container>
-            <Navbar.Brand href="/">
-                <img
-                    src={MoviedbLogo}
-                    width="50"
-                    height="50"
-                    className="d-inline-block align-top"
-                    alt="React Bootstrap logo"
-                />
-            </Navbar.Brand>
-            <Navbar.Brand>MovieDB</Navbar.Brand>
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav">
-                <Nav className="me-auto">
-                    <Nav.Link href="/movies">Movies</Nav.Link>
-                </Nav>
+const NavigationBar = () => {
 
-                <Form inline className="my-2 my-lg-0">
-                    <Row>
-                        <Col xs="auto" className="ml-auto">
-                            <Form.Control
-                                type="text"
-                                placeholder="Search"
-                                className="mr-sm-2"
-                                style={{ width: '300px' }}
-                            />
-                        </Col>
-                        <Col xs="auto">
-                            <Button type="submit" className="search-button">
-                                Search
-                            </Button>
-                        </Col>
-                    </Row>
-                </Form>
+    const userId = localStorage.getItem("userId");
 
-                    <Nav.Link href="/login">
+    return (
+        <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
+            <Container>
+                <Navbar.Brand href="/">
+                    <img
+                        src={MoviedbLogo}
+                        width="50"
+                        height="50"
+                        className="d-inline-block align-top"
+                        alt="React Bootstrap logo"
+                    />
+                </Navbar.Brand>
+                <Navbar.Brand>MovieDB</Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="me-auto">
+                        <Nav.Link href="/movies">Movies</Nav.Link>
+                    </Nav>
+
+                    <Form inline className="my-2 my-lg-0">
+                        <Row>
+                            <Col xs="auto" className="ml-auto">
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Search"
+                                    className="mr-sm-2"
+                                    style={{ width: '300px' }}
+                                />
+                            </Col>
+                            <Col xs="auto">
+                                <Button type="submit" className="search-button">
+                                    Search
+                                </Button>
+                            </Col>
+                        </Row>
+                    </Form>
+
+                    <Nav.Link href="/profile">
                         <img
                             src={UserLogo}
                             width="40"
@@ -55,11 +59,15 @@ const NavigationBar = () => (
                             className="d-inline-block align-top"
                             alt="User Logo"
                         />
+                        <Navbar.Text>
+                            {userId}
+                        </Navbar.Text>
                     </Nav.Link>
 
-            </Navbar.Collapse>
-        </Container>
-    </Navbar>
-);
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
+    );
+};
 
 export default NavigationBar;
