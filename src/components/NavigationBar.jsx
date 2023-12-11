@@ -8,6 +8,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import MoviedbLogo from '../images/moviedblogo.svg';
 import UserLogo from '../images/userlogo.svg';
+import { Link } from "react-router-dom";
 import '../NavigationBar.css';
 
 const NavigationBar = () => {
@@ -26,7 +27,7 @@ const NavigationBar = () => {
                         alt="React Bootstrap logo"
                     />
                 </Navbar.Brand>
-                <Navbar.Brand>MovieDB</Navbar.Brand>
+                <Navbar.Brand href="/">MovieDB</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
@@ -51,18 +52,24 @@ const NavigationBar = () => {
                         </Row>
                     </Form>
 
-                    <Nav.Link href="/profile">
-                        <img
-                            src={UserLogo}
-                            width="40"
-                            height="40"
-                            className="d-inline-block align-top"
-                            alt="User Logo"
-                        />
-                        <Navbar.Text>
-                            {userId}
-                        </Navbar.Text>
-                    </Nav.Link>
+                    {userId ? (
+                        <Nav.Link href="/profile">
+                            <img
+                                src={UserLogo}
+                                width="40"
+                                height="40"
+                                className="d-inline-block align-top"
+                                alt="User Logo"
+                            />
+                            <Navbar.Text>
+                                {userId}
+                            </Navbar.Text>
+                        </Nav.Link>
+                    ) : (
+                        <Link to="/login">
+                            <Button variant="primary">Login</Button>
+                        </Link>
+                    )}
 
                 </Navbar.Collapse>
             </Container>
