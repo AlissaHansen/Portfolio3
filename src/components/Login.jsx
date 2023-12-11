@@ -1,13 +1,17 @@
 import React, { useState } from "react";
+import {useNavigate} from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import AvatarImage from '../images/avatar2Image.jpg';
 import '../Stylesheets/GeneralStylesheet.css';
 
+
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -28,11 +32,12 @@ const Login = () => {
         })
         .then((response) => response.json())
         .then((data) => {
-            console.log("API Response:", data);
             if (data.userId && data.token) {
-                console.log("GODT LOGIN!!. User ID:", data.userId);
+                localStorage.setItem("userId", data.userId);
+                navigate("/");
             } else {
-                console.log("KUNNE IKKE LOGGE IND!!");
+                setError("Invalid username or password...");
+                setPassword("");
             }
         })
         .catch((error) => {
@@ -47,6 +52,7 @@ const Login = () => {
             </div>
             <div className="Login-container">
                 <h2 className="Login-header">MovieDB</h2>
+                {error && <p className="Login-error-message">{error}</p>}
                 <Form onSubmit={handleSubmit}>
                     <FloatingLabel controlId="floatingInput" label="Username" className="mb-3">
                         <Form.Control
