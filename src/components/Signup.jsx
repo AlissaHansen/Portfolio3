@@ -20,8 +20,8 @@ const Signup = () => {
             setError("Username must be longer than 3 characters");
             return;
         }
-        if (password.length < 7) {
-            setError("Passwoord must be longer than 6 characters");
+        if (password.length < 6) {
+            setError("Passwoord must be longer than 5 characters");
             return;
         }
 
@@ -42,7 +42,7 @@ const Signup = () => {
         .then((response) => response.json())
         .then((data) => {
             if (data.userId) {
-                navigate("/login");
+                navigate("/login", {state: { message: "User created sucessfully!"}});
                 window.location.reload();
             } else {
                 setError("Invalid username or password...");

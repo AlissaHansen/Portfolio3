@@ -56,3 +56,10 @@ body {
  font-weight: bold;
  color:cyan;
 }
+.Alert-message {
+    margin-top: 50px;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 36px;
+    text-align: center;
+}

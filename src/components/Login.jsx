@@ -1,17 +1,20 @@
 import React, { useState } from "react";
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Alert from "react-bootstrap/Alert";
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import AvatarImage from '../images/avatar2Image.jpg';
 import '../Stylesheets/GeneralStylesheet.css';
-
 
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+
+    let location = useLocation();
+    let message = location.state?.message;
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -47,6 +50,8 @@ const Login = () => {
     };
 
     return (
+        <>
+        {message && <Alert variant="success" className="Alert-message">{message}</Alert>}
         <div className="Outer-login-container">
             <div className="Left-container">
                 <img src={AvatarImage} className="App-logo" alt="logo" />
@@ -83,6 +88,7 @@ const Login = () => {
 
             </div>
         </div>
+        </>
     );
 };
 
