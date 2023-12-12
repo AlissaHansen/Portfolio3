@@ -6,10 +6,12 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Dropdown from 'react-bootstrap/Dropdown';
 import MoviedbLogo from '../images/moviedblogo.svg';
 import UserLogo from '../images/userlogo.svg';
 import { Link } from "react-router-dom";
 import '../NavigationBar.css';
+import { DropdownMenu } from "react-bootstrap";
 
 const NavigationBar = () => {
 
@@ -45,7 +47,7 @@ const NavigationBar = () => {
                                 />
                             </Col>
                             <Col xs="auto">
-                                <Button type="submit" className="search-button">
+                                <Button type="submit" variant="secondary" className="search-button">
                                     Search
                                 </Button>
                             </Col>
@@ -53,21 +55,31 @@ const NavigationBar = () => {
                     </Form>
 
                     {userId ? (
-                        <Nav.Link href="/profile">
-                            <img
-                                src={UserLogo}
-                                width="40"
-                                height="40"
-                                className="d-inline-block"
-                                alt="User Logo"
-                            />
-                            <Navbar.Text className="Username-display">
+                        <Dropdown>
+                            <Dropdown.Toggle variant="dark">
+                                <img
+                                    src={UserLogo}
+                                    width="40"
+                                    height="40"
+                                    className="d-inline-block"
+                                    alt="User Logo"
+                                />
                                 {userId}
-                            </Navbar.Text>
-                        </Nav.Link>
+                            </Dropdown.Toggle>
+                            <DropdownMenu >
+                            <Nav.Link href="/profile">
+                                <Dropdown.Item>My page</Dropdown.Item>
+                                </Nav.Link>  
+
+                                <Dropdown.Item onClick={() => {
+                                    localStorage.removeItem("userId");
+                                    window.location.reload();
+                                }}>Logout</Dropdown.Item>
+                            </DropdownMenu>
+                        </Dropdown>
                     ) : (
                         <Link to="/login">
-                            <Button variant="primary">Login</Button>
+                            <Button variant="secondary">Login</Button>
                         </Link>
                     )}
 
