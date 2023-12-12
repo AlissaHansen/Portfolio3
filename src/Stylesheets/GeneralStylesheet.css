@@ -46,3 +46,13 @@ body {
 .Login-error-message {
     color: red;
 }
+
+.Sign-up-text {
+    color: white;
+    margin-top: 15px;
+}
+
+.Sign-up-text a {
+ font-weight: bold;
+ color:cyan;
+}

@@ -67,9 +67,9 @@ const NavigationBar = () => {
                                 {userId}
                             </Dropdown.Toggle>
                             <DropdownMenu >
-                            <Nav.Link href="/profile">
-                                <Dropdown.Item>My page</Dropdown.Item>
-                                </Nav.Link>  
+                            <Link to="/profile">
+                                <Dropdown.Item as="span">My page</Dropdown.Item>
+                                </Link>  
 
                                 <Dropdown.Item onClick={() => {
                                     localStorage.removeItem("userId");
