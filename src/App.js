@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Movies from './components/Movies';
 import Login from './components/Login';
 import Profile from './components/Profile';
+import Signup from './components/Signup';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/movies" element={<Movies />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
 
