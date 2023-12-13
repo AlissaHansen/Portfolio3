@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import MovieInfo from "./MovieInfoCards";
+import MovieInfoCard from "./MovieInfoCards";
 
 const MovieListComponent = ({ title, count, ranked }) => {
     const [movies, setMovies] = useState([]);
@@ -24,7 +24,7 @@ const MovieListComponent = ({ title, count, ranked }) => {
             <h1 className="Movies-headline">{title}</h1>
             <div className="Cards-outer-div" >
             {movies.map((movie, index) => (
-                <MovieInfo movie={movie} index={index} />
+                <MovieInfoCard movie={movie} index={index} />
             ))}
             </div>
         </div>
