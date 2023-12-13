@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const MovieInfo = ({movie, index}) => (
     <div key={index}>
-      <Link to={"/movie/" + movie.id}>
+      <Link to={"/movieinfo/" + movie.id}>
     <Card style={{ width: '14rem'}}>
       <Card.Img variant="top" src={movie.poster} style={{ height: '320px' }} />
       <Card.Body>
