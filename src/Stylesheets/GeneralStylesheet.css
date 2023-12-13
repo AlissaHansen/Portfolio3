@@ -1,7 +1,6 @@
 body {
     background-color: #111;
 }
-
 .Cards-outer-div {
     display: flex;
     justify-content: space-evenly;
@@ -25,8 +24,6 @@ body {
     text-align: center;
     background-image: url("../images/LoginBackground.svg");
 }
-
-
 .Left-container {
     width: 800px;
 }
@@ -34,7 +31,6 @@ body {
 .Left-container img {
     width: 600px;
 }
-
 .Login-button {
     margin: 15px;
 }
@@ -46,12 +42,10 @@ body {
 .Login-error-message {
     color: red;
 }
-
 .Sign-up-text {
     color: white;
     margin-top: 15px;
 }
-
 .Sign-up-text a {
  font-weight: bold;
  color:cyan;
@@ -62,4 +56,29 @@ body {
     font-style: italic;
     font-size: 36px;
     text-align: center;
+}
+.Movie-poster-div {
+    margin-left: 150px;
+    margin-right: 150px;
+    display: flex;
+    color: white;
+}
+.Movie-poster-div img {
+    width: 350px;
+    margin-right: 40px;
+}
+.Movie-title {
+    color: white;
+    margin-top: 40px;
+    margin-left: 150px;
+}
+.Movieinfo-start-runtime {
+    color: white;
+    margin-left: 150px;
+}
+.Genre-info {
+    font-weight: bold;
+}
+.Starring-title {
+    font-weight: bold;
 }
