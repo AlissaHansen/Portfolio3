@@ -6,6 +6,7 @@ import Movies from './components/Movies';
 import Login from './components/Login';
 import Profile from './components/Profile';
 import Signup from './components/Signup';
+import MovieInfo from './components/MovieInfo';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/movieinfo/:id" element={<MovieInfo />} />
       </Routes>
 
     </div>
