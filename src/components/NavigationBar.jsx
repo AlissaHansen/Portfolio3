@@ -16,6 +16,7 @@ import { DropdownMenu } from "react-bootstrap";
 const NavigationBar = () => {
 
     const userId = localStorage.getItem("userId");
+    const userToken = localStorage.getItem("userToken");
 
     return (
         <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
@@ -54,7 +55,7 @@ const NavigationBar = () => {
                         </Row>
                     </Form>
 
-                    {userId ? (
+                    {userId && userToken ? (
                         <Dropdown>
                             <Dropdown.Toggle variant="dark">
                                 <img
