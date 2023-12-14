@@ -63,8 +63,15 @@ body {
     display: flex;
     color: white;
 }
+/* Wrap div under hvis skærm er lille */
+@media (max-width: 1000px) {
+    .Movie-poster-div {
+        flex-wrap: wrap;
+    }
+}
 .Movie-poster-div img {
     width: 350px;
+    height: 550px;
     margin-right: 40px;
 }
 .Movie-title {
@@ -76,9 +83,23 @@ body {
     color: white;
     margin-left: 150px;
 }
-.Genre-info {
+.Genre-title {
     font-weight: bold;
+}
+.Genre-info {
+    font-style: italic;
 }
 .Starring-title {
     font-weight: bold;
+}
+.Watchlist-button {
+    margin-top: 50px;
+}
+.Rating-container{
+    color: white;
+    margin-left: 150px;
+    margin-top: 30px;
+    font-size: 20px;
+    display: flex;
+    gap: 20px;
 }
