@@ -57,8 +57,9 @@ const MovieInfoDisplay = ({ movieId, userId }) => {
                         </div>
                     </div>
                     <p className="Rating-container">
-                        Rating: &#9733;{movie.averageRating} / 10 <RateButton />
+                        Rating: &#9733;{movie.averageRating} / 10
                     </p>
+                    <RateButton />
                 </div>
             ) : (
                 <p>Loading...</p>
