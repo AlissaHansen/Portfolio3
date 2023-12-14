@@ -56,9 +56,15 @@ const MovieInfoDisplay = ({ movieId, userId }) => {
                             <WatchlistButton movieId={movieId} userId={userId} user={user} />
                         </div>
                     </div>
-                    <p className="Rating-container">
+                    <div className="Rating-container">
+                        <p>
                         Rating: &#9733;{movie.averageRating} / 10
-                    </p>
+                        </p>
+                        <p>
+                            Number of votes: {movie.numVotes} 
+                        </p>
+                    </div>
+
                     <RateButton movieId={movieId} userId={userId} user={user}/>
                 </div>
             ) : (
