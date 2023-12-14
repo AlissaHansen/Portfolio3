@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 
+//Komponent til at tilføje/fjerne film fra brugerens bookmarks
 const WatchlistButton = ({ movieId, userId, user }) => {
 
     const [message, setMessage] = useState("");
