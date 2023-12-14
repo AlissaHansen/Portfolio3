@@ -74,6 +74,7 @@ const NavigationBar = () => {
 
                                 <Dropdown.Item onClick={() => {
                                     localStorage.removeItem("userId");
+                                    localStorage.removeItem("userToken");
                                     window.location.reload();
                                 }}>Logout</Dropdown.Item>
                             </DropdownMenu>
