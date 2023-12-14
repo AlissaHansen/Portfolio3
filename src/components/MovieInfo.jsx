@@ -5,10 +5,11 @@ import MovieInfoDisplay from "./MovieInfoDisplay";
 const MovieInfo = () => {
 
     const { id } = useParams();
+    const userId = localStorage.getItem("userId");
 
     return (
         <div>
-            <MovieInfoDisplay id = {id}/>
+            <MovieInfoDisplay movieId = {id} userId = {userId}/>
         </div>
     );
 }
