@@ -7,6 +7,7 @@ const WatchlistButton = ({ movieId, userId, user }) => {
 
     const token = localStorage.getItem("userToken");
 
+    //Tilføjer filmen til brugerens watchlist
     const handleAdd = (event) => {
         event.preventDefault();
 
@@ -40,6 +41,7 @@ const WatchlistButton = ({ movieId, userId, user }) => {
             });
     };
 
+    //Fjerner filmen fra brugerens watchlist
     const handleRemove = (event) => {
         event.preventDefault();
 
