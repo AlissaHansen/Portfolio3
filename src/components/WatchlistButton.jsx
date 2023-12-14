@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 
-const WatchlistButton = ({ movieId, userId }) => {
+const WatchlistButton = ({ movieId, userId, user }) => {
 
     const [message, setMessage] = useState("");
 
-    const handleSubmit = (event) => {
+    const token = localStorage.getItem("userToken");
+
+    const handleAdd = (event) => {
         event.preventDefault();
 
-        const bookmarkData = {
+        const addBookmarkData = {
             MovieInfoId: movieId,
             userId: userId,
         };
@@ -17,30 +19,71 @@ const WatchlistButton = ({ movieId, userId }) => {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": "Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoieEZyYW1lZSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJleHAiOjE3MDI4MTExNjJ9.aBnStd1yE9wfHl2Ysx2qwoxx3JqZRrbUdyBlfxqmYDfcpBX5uSTrf45kqK8m29e6D1uDlopaEBuj1MDdwUkMKA"
+                "Authorization": "Bearer " + token
             },
-            body: JSON.stringify(bookmarkData),
+            body: JSON.stringify(addBookmarkData),
         })
             .then(response => {
                 if (response.status === 201) {
-                    setMessage("Successfully added to watchlist");
+                    window.location.reload();
+                } else {
+                    setMessage("An error occurred");
+                }
+                return response.json();
+            })
+            .catch((error) => {
+                setMessage("An error occurred");
+            });
+    };
+
+    const handleRemove = (event) => {
+        event.preventDefault();
+
+        const removeBookmarkData = {
+            MovieInfoId: movieId,
+            userId: userId,
+        };
+
+        fetch("http://localhost:5001/api/moviebookmarks", {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + token
+            },
+            body: JSON.stringify(removeBookmarkData),
+        })
+            .then(response => {
+                if (response.status === 200) {
+                    window.location.reload();
                 } else {
                     setMessage("An error occurred");
                 }
                 return response.json();
             })
             .then(data => {
-                console.log('Success:', data);
+                console.log("Success:", data);
             })
             .catch((error) => {
-                console.error('Error:', error);
+                console.error("Error:", error);
                 setMessage("An error occurred");
             });
-    };
+    }
+
+    //Tjekker om filmen er på brugerens watchlist, så knappen kan ændre sig til "Remove from watchlist"
+    //Tjekker også om der er en bruger, og om denne har bookmarked nogle film
+    const isMovieInWatchlist = user && user.movieBookmarkModels && user.movieBookmarkModels.some(movie => movie.movieInfoId === movieId);
 
     return (
         <div>
-            <Button className="Watchlist-button" variant="warning" type="submit" onClick={handleSubmit}>Add to watchlist</Button>
+            {isMovieInWatchlist ? (
+                <Button className="Watchlist-button" variant="warning" onClick={handleRemove}>
+                    Remove from watchlist
+                </Button>
+            ) : (
+                <Button className="Watchlist-button" variant="warning" onClick={handleAdd}>
+                    Add to watchlist
+                </Button>
+            )}
             {message && <p>{message}</p>}
         </div>
     );
