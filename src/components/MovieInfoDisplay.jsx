@@ -6,6 +6,9 @@ import RateButton from "./RateButton";
 
 const MovieInfoDisplay = ({ movieId, userId }) => {
     const [movie, setMovie] = useState();
+    const [user, setUser] = useState();
+
+ //Hent den specifikke film
 
     useEffect(() => {
         const loadMovie = () => {
@@ -18,6 +21,19 @@ const MovieInfoDisplay = ({ movieId, userId }) => {
         };
         loadMovie();
     }, [movieId]);
+
+    //Hent den specifikke bruger for at kunne vise om filmen er på brugerens watchlist
+    useEffect(() => {
+        const loadUser = () => {
+            const url = "http://localhost:5001/api/users/" + userId
+
+            fetch(url)
+                .then((res) => res.json())
+                .then((json) => setUser(json))
+                .catch((error) => console.error("Error loading user:", error));
+        };
+        loadUser();
+    }, [userId]);
 
     return (
         <div>
@@ -37,7 +53,7 @@ const MovieInfoDisplay = ({ movieId, userId }) => {
                             <div>
                                 <span className="Starring-title">Starring: </span>{movie.moviePrincipals.map((name) => name.personName).join(", ")}.
                             </div>
-                            <WatchlistButton movieId={movieId} userId={userId} />
+                            <WatchlistButton movieId={movieId} userId={userId} user={user} />
                         </div>
                     </div>
                     <p className="Rating-container">
