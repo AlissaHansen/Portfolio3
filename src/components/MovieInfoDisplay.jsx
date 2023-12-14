@@ -1,14 +1,15 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import '../Stylesheets/GeneralStylesheet.css';
-import Button from 'react-bootstrap/Button';
+import WatchlistButton from "./WatchlistButton";
+import RateButton from "./RateButton";
 
-const MovieInfoDisplay = ({ id }) => {
+const MovieInfoDisplay = ({ movieId, userId }) => {
     const [movie, setMovie] = useState();
 
     useEffect(() => {
         const loadMovie = () => {
-            const url = "http://localhost:5001/api/movieinfos/" + id
+            const url = "http://localhost:5001/api/movieinfos/" + movieId
 
             fetch(url)
                 .then((res) => res.json())
@@ -16,7 +17,7 @@ const MovieInfoDisplay = ({ id }) => {
                 .catch((error) => console.error("Error loading movie:", error));
         };
         loadMovie();
-    }, [id]);
+    }, [movieId]);
 
     return (
         <div>
@@ -28,19 +29,20 @@ const MovieInfoDisplay = ({ id }) => {
                     </div>
                     <div className="Movie-poster-div">
                         <img src={movie.poster} alt={`"Poster for movie:" ${movie.primaryTitle}`} />
-                        <div>
-                        <p>{movie.plot}</p>
-                        <p className="Genre-info">
-                            Genres: {movie.genres.map((genre) => genre.genreName).join(", ")}
-                        </p>
-                        <div>
-                            <span className="Starring-title">Starring: </span>{movie.moviePrincipals.map((name) => name.personName).join(", ")}.
-                        </div>
-                        <div>
-                            <Button variant="warning">Add to watchlist</Button>
-                        </div>
+                        <div className="Info-container">
+                            <p>{movie.plot}</p>
+                            <p className="Genre-info">
+                                <span className="Genre-title">Genres: </span>{movie.genres.map((genre) => genre.genreName).join(", ")}
+                            </p>
+                            <div>
+                                <span className="Starring-title">Starring: </span>{movie.moviePrincipals.map((name) => name.personName).join(", ")}.
+                            </div>
+                            <WatchlistButton movieId={movieId} userId={userId} />
                         </div>
                     </div>
+                    <p className="Rating-container">
+                        Rating: &#9733;{movie.averageRating} / 10 <RateButton />
+                    </p>
                 </div>
             ) : (
                 <p>Loading...</p>
