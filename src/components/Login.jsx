@@ -37,6 +37,7 @@ const Login = () => {
         .then((data) => {
             if (data.userId && data.token) {
                 localStorage.setItem("userId", data.userId);
+                localStorage.setItem("userToken", data.token);
                 navigate("/");
                 window.location.reload();
             } else {
