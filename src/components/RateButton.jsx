@@ -3,8 +3,8 @@ import Button from "react-bootstrap/Button";
 
 const RateButton = () => {
     return (
-        <div>
-            <Button className="Rate-button" variant="secondary">Rate</Button>
+        <div className="Rate-button">
+            <Button className="Rate-button" variant="secondary">Give a rating</Button>
         </div>
     );
 }
