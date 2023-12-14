@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 
-const WatchlistButton = ({movieId, userId}) => {
+const WatchlistButton = ({ movieId, userId }) => {
+
+    const [message, setMessage] = useState("");
+
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -18,18 +21,27 @@ const WatchlistButton = ({movieId, userId}) => {
             },
             body: JSON.stringify(bookmarkData),
         })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success:', data);
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
+            .then(response => {
+                if (response.status === 201) {
+                    setMessage("Successfully added to watchlist");
+                } else {
+                    setMessage("An error occurred");
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                setMessage("An error occurred");
+            });
     };
 
     return (
         <div>
             <Button className="Watchlist-button" variant="warning" type="submit" onClick={handleSubmit}>Add to watchlist</Button>
+            {message && <p>{message}</p>}
         </div>
     );
 }
