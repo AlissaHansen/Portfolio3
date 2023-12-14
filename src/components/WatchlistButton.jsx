@@ -10,6 +10,11 @@ const WatchlistButton = ({ movieId, userId, user }) => {
     const handleAdd = (event) => {
         event.preventDefault();
 
+        if (!token) {
+            setMessage(<span>You need to be <a href="/login">Logged in</a>.</span>);
+            return;
+        }
+
         const addBookmarkData = {
             MovieInfoId: movieId,
             userId: userId,
@@ -29,7 +34,6 @@ const WatchlistButton = ({ movieId, userId, user }) => {
                 } else {
                     setMessage("An error occurred");
                 }
-                return response.json();
             })
             .catch((error) => {
                 setMessage("An error occurred");
@@ -53,15 +57,11 @@ const WatchlistButton = ({ movieId, userId, user }) => {
             body: JSON.stringify(removeBookmarkData),
         })
             .then(response => {
-                if (response.status === 200) {
+                if (response.ok) {
                     window.location.reload();
                 } else {
                     setMessage("An error occurred");
                 }
-                return response.json();
-            })
-            .then(data => {
-                console.log("Success:", data);
             })
             .catch((error) => {
                 console.error("Error:", error);
