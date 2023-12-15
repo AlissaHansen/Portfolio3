@@ -23,7 +23,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/movieinfo/:id" element={<MovieInfo />} />
-        <Route path="/search/:searchterm" element={<Search/>} />
+        <Route path="/search/:searchTerm" element={<Search/>} />
       </Routes>
 
     </div>
