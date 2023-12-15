@@ -37,7 +37,8 @@ const MovieListComponent = ({ title, count, ranked }) => {
             <div className="Paging-controls">
                 <Button variant="dark" onClick={() => setPage(prevPage => prevPage - 1)}>&lt;</Button>
                 <Button variant="dark" onClick={() => setPage(0)}>1</Button>
-                <Button variant="dark" onClick={() => setPage(5526)}>({numberOfPages})</Button>
+                <Button variant="dark" onClick={() => setPage(page)}>{page + 1}</Button>
+                <Button variant="dark" onClick={() => setPage(numberOfPages)}>Last page</Button>
                 <Button variant="dark" onClick={() => setPage(prevPage => prevPage + 1)}>&gt;</Button>
             </div>
         </div>
