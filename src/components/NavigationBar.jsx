@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
@@ -10,13 +10,24 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import MoviedbLogo from '../images/moviedblogo.svg';
 import UserLogo from '../images/userlogo.svg';
 import { Link } from "react-router-dom";
+import {useHistory} from 'react-router-dom';
 import '../NavigationBar.css';
 import { DropdownMenu } from "react-bootstrap";
 
+
 const NavigationBar = () => {
+
+    const [searchTerm, setSearchTerm] = useState("");
 
     const userId = localStorage.getItem("userId");
     const userToken = localStorage.getItem("userToken");
+
+    const history = useHistory();
+
+    const handleSearch = (e) => {
+        e.preventDefualt();
+        history.push(`/search?term=${encodeURIComponent(searchTerm)}`);
+    };
 
     return (
         <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
@@ -37,7 +48,7 @@ const NavigationBar = () => {
                         <Nav.Link href="/movies">Movies</Nav.Link>
                     </Nav>
 
-                    <Form inline className="my-2 my-lg-0">
+                    <Form onSubmit={handleSearch} inline className="my-2 my-lg-0">
                         <Row>
                             <Col xs="auto" className="ml-auto">
                                 <Form.Control
