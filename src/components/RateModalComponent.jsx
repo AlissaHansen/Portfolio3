@@ -7,11 +7,19 @@ import '../Stylesheets/GeneralStylesheet.css';
 const RateButton = ({ movie, movieId, userId, user }) => {
   const [show, setShow] = useState(false);
   const [rating, setRating] = useState("");
+  const [error, setError] = useState("");
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   const handleRate = () => {
+
+  const ratingNumber = Number(rating);
+  if (isNaN(ratingNumber) || ratingNumber < 1 || ratingNumber > 10) {
+    setError("The rating must be between 1 and 10");
+    return;
+  }
+
     const url ="http://localhost:5001/api/rate"; 
     const ratingInfo = {
       userId: userId,
@@ -49,7 +57,10 @@ const RateButton = ({ movie, movieId, userId, user }) => {
           <Modal.Title>Rate movie: {movie.primaryTitle}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
+          <Form onSubmit={(e) => {
+            e.preventDefault();
+            handleRate();
+          }}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Rating</Form.Label>
               <Form.Control
@@ -59,6 +70,7 @@ const RateButton = ({ movie, movieId, userId, user }) => {
                 value={rating}
                 onChange={e => setRating(e.target.value)}
               />
+              {error && <div>{error}</div>}
             </Form.Group>
           </Form>
         </Modal.Body>
