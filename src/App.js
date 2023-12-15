@@ -7,6 +7,7 @@ import Login from './components/Login';
 import Profile from './components/Profile';
 import Signup from './components/Signup';
 import MovieInfo from './components/MovieInfo';
+import Search from './components/Search';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/movieinfo/:id" element={<MovieInfo />} />
+        <Route path="/search/:searchterm" element={<Search/>} />
       </Routes>
 
     </div>

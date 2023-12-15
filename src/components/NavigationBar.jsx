@@ -9,8 +9,7 @@ import Col from 'react-bootstrap/Col';
 import Dropdown from 'react-bootstrap/Dropdown';
 import MoviedbLogo from '../images/moviedblogo.svg';
 import UserLogo from '../images/userlogo.svg';
-import { Link } from "react-router-dom";
-import {useHistory} from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
 import '../NavigationBar.css';
 import { DropdownMenu } from "react-bootstrap";
 
@@ -18,15 +17,15 @@ import { DropdownMenu } from "react-bootstrap";
 const NavigationBar = () => {
 
     const [searchTerm, setSearchTerm] = useState("");
+    const navigate = useNavigate();
 
     const userId = localStorage.getItem("userId");
     const userToken = localStorage.getItem("userToken");
 
-    const history = useHistory();
-
     const handleSearch = (e) => {
-        e.preventDefualt();
-        history.push(`/search?term=${encodeURIComponent(searchTerm)}`);
+        e.preventDefault();
+        navigate("/search/" + searchTerm);
+
     };
 
     return (
@@ -56,6 +55,7 @@ const NavigationBar = () => {
                                     placeholder="Search"
                                     className="mr-sm-2"
                                     style={{ width: '300px' }}
+                                    onChange={e => setSearchTerm(e.target.value)}
                                 />
                             </Col>
                             <Col xs="auto">
