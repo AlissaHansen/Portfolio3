@@ -37,7 +37,6 @@ const RateButton = ({ movie, movieId, userId, user }) => {
   .then((response) => response.json())
   .then((data) => {
     console.log("Success", data);
-    console.log("test", ratingInfo);
     handleClose();
     window.location.reload();
   })
