@@ -1,5 +1,6 @@
 import React from "react";
 import RateModalComponent from "./RateModalComponent";
+import DeleteRateButton from "./DeleteRateButton";
 
 const RateComponent = ({ movie, userId, movieId, user }) => {
 
@@ -9,7 +10,7 @@ const RateComponent = ({ movie, userId, movieId, user }) => {
     return (
         <div>
             {isMovieRatedByUser ? (
-                <p>er allerede rated</p>
+                <DeleteRateButton user = {user} movieId = {movieId} />
             ) : (
             <RateModalComponent movie={movie} movieId={movieId} userId={userId} user={user} />
             )}
