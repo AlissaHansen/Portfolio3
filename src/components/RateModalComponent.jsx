@@ -39,6 +39,7 @@ const RateButton = ({ movie, movieId, userId, user }) => {
     console.log("Success", data);
     console.log("test", ratingInfo);
     handleClose();
+    window.location.reload();
   })
   .catch((error) => {
     console.error("Error:", error);
