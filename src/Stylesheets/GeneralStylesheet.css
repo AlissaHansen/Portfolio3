@@ -105,3 +105,16 @@ body {
     margin-left: 75px;
     margin-bottom: 20px;
 }
+
+.Paging-controls {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.Card-body-fixed{
+    height: 200px;
+    overflow: auto;
+}
