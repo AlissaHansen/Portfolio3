@@ -114,7 +114,11 @@ body {
     justify-content: center;
 }
 
-.Card-body-fixed{
+.Card-body-fixed {
     height: 200px;
     overflow: auto;
+}
+.Rate-button {
+    margin-left: 150px;
+
 }
