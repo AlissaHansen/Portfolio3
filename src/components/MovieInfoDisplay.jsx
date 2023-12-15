@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import '../Stylesheets/GeneralStylesheet.css';
 import WatchlistButton from "./WatchlistButton";
-import RateButton from "./RateButton";
+import RateComponent from "./RateComponent";
 
 const MovieInfoDisplay = ({ movieId, userId }) => {
     const [movie, setMovie] = useState();
@@ -65,7 +65,7 @@ const MovieInfoDisplay = ({ movieId, userId }) => {
                         </p>
                     </div>
 
-                    <RateButton movieId={movieId} userId={userId} user={user}/>
+                    <RateComponent movie={movie} movieId={movieId} userId={userId} user={user}/>
                 </div>
             ) : (
                 <p>Loading...</p>
