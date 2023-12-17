@@ -7,9 +7,9 @@ import '../Stylesheets/GeneralStylesheet.css';
 
 
 const MovieInfoCards = ({movie, index}) => (
-    <div key={index}>
+    <div className="col-md-3 mb-4" key={index}>
       <Link to={"/movieinfo/" + movie.id}>
-    <Card style={{ width: '14rem'}}>
+    <Card style={{ width: '14rem'}} className="mx-auto">
       <Card.Img variant="top" src={movie.poster} style={{ height: '320px' }} />
       <Card.Body className="Card-body-fixed">
         <Card.Title>{movie.primarytitle}</Card.Title>

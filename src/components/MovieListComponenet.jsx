@@ -29,7 +29,7 @@ const MovieListComponent = ({ title, count, ranked }) => {
     return (
         <div>
             <h1 className="Movies-headline">{title}</h1>
-            <div className="Cards-outer-div" >
+            <div className="Cards-outer-div row" >
                 {movies.map((movie, index) => (
                     <MovieInfoCard movie={movie} index={index} />
                 ))}
