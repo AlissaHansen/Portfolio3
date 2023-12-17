@@ -1,11 +1,15 @@
 import React from "react";
-import {useParams} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import SearchResults from "./SearchResults";
+import '../Stylesheets/GeneralStylesheet.css';
 
 const Search = () => {
-    const {searchTerm} = useParams();
+    const { searchTerm } = useParams();
     return (
-        <SearchResults searchTerm={searchTerm}/>
+        <>
+        <h1 className="Search-header">Search Results for: "{searchTerm}"</h1>
+            <SearchResults searchTerm={searchTerm} />
+        </>
     );
 }
 

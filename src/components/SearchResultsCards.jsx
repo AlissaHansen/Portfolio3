@@ -6,21 +6,18 @@ import '../Stylesheets/GeneralStylesheet.css';
 
 
 
-const SearchResultsCards = ({movie, index}) => (
-    <div key={index}>
-      <Link to={"/movieinfo/" + movie.id}>
-      <div class="row row-cols-3">
-      <div class="col">
-    <Card style={{ width: '14rem'}}>
-      <Card.Img variant="top" src={movie.poster} style={{ height: '320px' }} />
-      <Card.Body className="Card-body-fixed">
-        <Card.Title>{movie.title}</Card.Title>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
-    </div>
-    </div>
+const SearchResultsCards = ({ movie, index }) => (
+  <div className="col-md-3 mb-4" key={index}>
+    <Link to={"/movieinfo/" + movie.movieInfoId}>
+      <Card style={{ width: '14rem' }} className="mx-auto">
+        <Card.Img variant="top" src={movie.poster} style={{ height: '320px' }} />
+        <Card.Body className="Card-body-fixed">
+          <Card.Title>{movie.title}</Card.Title>
+          <Button variant="primary">Go somewhere</Button>
+        </Card.Body>
+      </Card>
     </Link>
-    </div>
+  </div>
 );
+
 export default SearchResultsCards;

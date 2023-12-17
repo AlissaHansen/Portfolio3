@@ -20,7 +20,7 @@ const SearchResults = ({ searchTerm }) => {
         loadMovies();
     }, [searchTerm]);
     return (
-            <div className="Search-cards-div" >
+            <div className="row" >
                 {movies.map((movie, index) => (
                     <SearchResultsCards movie={movie} index={index} />
                 ))}

@@ -48,10 +48,10 @@ const MovieInfoDisplay = ({ movieId, userId }) => {
                         <div className="Info-container">
                             <p>{movie.plot}</p>
                             <p className="Genre-info">
-                                <span className="Genre-title">Genres: </span>{movie.genres.map((genre) => genre.genreName).join(", ")}
+                            <span className="Genre-title">Genres: </span>{movie.genres ? movie.genres.map((genre) => genre.genreName).join(", ") : "N/A"}
                             </p>
                             <div>
-                                <span className="Starring-title">Starring: </span>{movie.moviePrincipals.map((name) => name.personName).join(", ")}.
+                            <span className="Starring-title">Starring: </span>{movie.moviePrincipals ? movie.moviePrincipals.map((name) => name.personName).join(", ") : "N/A"}.
                             </div>
                             <WatchlistButton movieId={movieId} userId={userId} user={user} />
                         </div>
