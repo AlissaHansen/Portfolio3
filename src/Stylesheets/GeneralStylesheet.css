@@ -224,3 +224,6 @@ body {
     margin-top: 100px;
     justify-content: center;
 }
+.Delete-user-button {
+    float: right;
+}

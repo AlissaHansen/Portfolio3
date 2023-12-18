@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import UserBookmarkDisplay from "./UserBookmarkDisplay";
 import UserRatingsDisplay from "./UserRatingsDisplay";
+import DeleteUserButton from "./DeleteUserButton";
 
-const FetchUserData = ({userId}) => {
+const FetchUserData = ({ userId }) => {
 
     const [user, setUser] = useState();
 
@@ -19,10 +20,13 @@ const FetchUserData = ({userId}) => {
     }, [userId]);
 
     return (
+        <>
         <div className="Profile-container">
-        <UserBookmarkDisplay user = {user} />
-        <UserRatingsDisplay user = {user} />
+            <UserBookmarkDisplay user={user} />
+            <UserRatingsDisplay user={user} />
         </div>
+        <DeleteUserButton user = {user} />
+        </>
     );
 }
 
