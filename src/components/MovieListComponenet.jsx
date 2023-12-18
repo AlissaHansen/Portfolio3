@@ -39,7 +39,8 @@ const MovieListComponent = ({ title, count, filter }) => {
                 <Button variant="dark" onClick={() => setPage(0)}>1</Button>
                 <Button variant="dark" onClick={() => setPage(page)}>{page + 1}</Button>
                 <Button variant="dark" onClick={() => setPage(numberOfPages)}>{numberOfPages + 1}</Button>
-                <Button variant="dark" onClick={() => page < numberOfPages && setPage(prevPage => prevPage + 1)}>&gt;</Button>            </div>
+                <Button variant="dark" onClick={() => page < numberOfPages && setPage(prevPage => prevPage + 1)}>&gt;</Button>
+            </div>
         </div>
     );
 };
