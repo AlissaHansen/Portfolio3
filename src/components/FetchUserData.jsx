@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import UserBookmarkDisplay from "./UserBookmarkDisplay";
+import UserRatingsDisplay from "./UserRatingsDisplay";
 
 const FetchUserData = ({userId}) => {
 
@@ -18,7 +19,10 @@ const FetchUserData = ({userId}) => {
     }, [userId]);
 
     return (
+        <div className="Profile-container">
         <UserBookmarkDisplay user = {user} />
+        <UserRatingsDisplay user = {user} />
+        </div>
     );
 }
 
