@@ -3,14 +3,14 @@ import MovieInfoCard from "./MovieInfoCards";
 import Button from 'react-bootstrap/Button';
 import '../Stylesheets/GeneralStylesheet.css';
 
-const MovieListComponent = ({ title, count, ranked }) => {
+const MovieListComponent = ({ title, count, filter }) => {
     const [movies, setMovies] = useState([]);
     const [page, setPage] = useState(0);
     const [numberOfPages, setNumberOfPages] = useState(0);
 
     useEffect(() => {
         const loadMovies = () => {
-            const url = ranked
+            const url = filter === "ranked"
                 ? "http://localhost:5001/api/movieinfos?ranked=true&pagesize=" + count + "&page=" + page
                 : "http://localhost:5001/api/movieinfos?newest=true&pagesize=" + count + "&page=" + page
 
@@ -24,7 +24,7 @@ const MovieListComponent = ({ title, count, ranked }) => {
         };
 
         loadMovies();
-    }, [count, ranked, page]);
+    }, [count, filter, page]);
 
     return (
         <div>
