@@ -1,7 +1,10 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/button";
+import { useNavigate } from "react-router-dom";
 
 const DeleteUserButton = ({ user }) => {
+
+    const navigate = useNavigate();
 
     const [errorMessage, setErrorMessage] = useState("");
 
@@ -13,7 +16,10 @@ const DeleteUserButton = ({ user }) => {
         })
             .then(response => {
                 if (response.ok) {
-                    //navigate user to home
+                    localStorage.removeItem("userId");
+                    localStorage.removeItem("token");
+                    navigate("/");
+
                 }
                 else {
                     setErrorMessage("An error occurred");

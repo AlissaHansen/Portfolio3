@@ -6,6 +6,7 @@ import DeleteUserButton from "./DeleteUserButton";
 const FetchUserData = ({ userId }) => {
 
     const [user, setUser] = useState();
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const loadUser = () => {
@@ -13,11 +14,18 @@ const FetchUserData = ({ userId }) => {
 
             fetch(url)
                 .then((res) => res.json())
-                .then((json) => setUser(json))
+                .then((json) => {
+                    setUser(json);
+                    setIsLoading(false);
+                })
                 .catch((error) => console.error("Error loading user.", error));
         };
         loadUser();
     }, [userId]);
+
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <>
@@ -25,7 +33,7 @@ const FetchUserData = ({ userId }) => {
             <UserBookmarkDisplay user={user} />
             <UserRatingsDisplay user={user} />
         </div>
-        <DeleteUserButton user = {user} />
+        <DeleteUserButton user={user} />
         </>
     );
 }
