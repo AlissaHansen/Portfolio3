@@ -15,7 +15,7 @@ const MovieInfoCards = ({movie, index}) => (
         <Card.Title>{movie.primarytitle}</Card.Title>
         <Card.Text>{movie.startYear}</Card.Text>
         <Card.Text> Rating: {movie.averageRating}&#9733;</Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        <Button variant="primary">See more</Button>
       </Card.Body>
     </Card>
     </Link>
