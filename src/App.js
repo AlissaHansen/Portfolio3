@@ -8,6 +8,8 @@ import Profile from './components/Profile';
 import Signup from './components/Signup';
 import MovieInfo from './components/MovieInfo';
 import Search from './components/Search';
+import Footer from './components/Footer';
+import Error from './components/Error';
 
 
 function App() {
@@ -24,7 +26,10 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/movieinfo/:id" element={<MovieInfo />} />
         <Route path="/search/:searchTerm" element={<Search/>} />
+        <Route path="*" element={<Error />} />
       </Routes>
+
+      <Footer />
 
     </div>
   );
