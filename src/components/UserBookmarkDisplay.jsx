@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import '../Stylesheets/GeneralStylesheet.css';
 
 const UserBookmarkDisplay = ({ user }) => {
@@ -9,8 +10,7 @@ const UserBookmarkDisplay = ({ user }) => {
                 <ul>
                     {user.movieBookmarkModels.map((bookmark, index) => (
                         <li key={index}>
-                            {bookmark.movieInfoId}
-                        </li>
+                            <Link to={"/movieinfo/" + bookmark.movieInfoId}>{bookmark.movieInfoId}</Link>                        </li>
                     ))}
                 </ul>
             }
