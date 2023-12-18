@@ -1,14 +1,19 @@
-import React from "react"; 
+import React from "react";
 
-const UserBookmarkDisplay = ({user}) => {
+const UserBookmarkDisplay = ({ user }) => {
     return (
         <div>
-            {user && user.movieBookmarkModels.map((bookmark, index) => (
-                <div key={index}>
-                    <p>{bookmark.movieInfoId}</p>
-                </div>
-            ))}
+            {user && user.movieBookmarkModels &&
+                <ul>
+                    {user.movieBookmarkModels.map((bookmark, index) => (
+                        <li key={index}>
+                            {bookmark.movieInfoId}
+                        </li>
+                    ))}
+                </ul>
+            }
         </div>
     );
 }
+
 export default UserBookmarkDisplay;
