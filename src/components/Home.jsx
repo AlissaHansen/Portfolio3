@@ -6,8 +6,8 @@ import '../Stylesheets/GeneralStylesheet.css';
 const Home = () => 
 <div>
     <MovieCarousel />
-    <MovieListComponent title="Top rated movies" count={5} ranked/>
-    <MovieListComponent title="Featured movies" count={5}/>
+    <MovieListComponent title="Top rated movies" count={4} filter = "ranked"/>
+    <MovieListComponent title="Featured movies" count={4}/>
 </div>;
 
 export default Home;
