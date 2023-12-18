@@ -9,40 +9,47 @@ const RateButton = ({ movie, movieId, userId, user }) => {
   const [rating, setRating] = useState("");
   const [error, setError] = useState("");
 
+  const token = localStorage.getItem("userToken");
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   const handleRate = () => {
 
-  const ratingNumber = Number(rating);
-  if (isNaN(ratingNumber) || ratingNumber < 1 || ratingNumber > 10) {
-    setError("The rating must be between 1 and 10");
-    return;
+    if (!token) {
+      setError(<span>You need to be <a href="/login">Logged in</a>.</span>);
+      return;
   }
 
-    const url ="http://localhost:5001/api/rate"; 
+    const ratingNumber = Number(rating);
+    if (isNaN(ratingNumber) || ratingNumber < 1 || ratingNumber > 10) {
+      setError("The rating must be between 1 and 10");
+      return;
+    }
+
+    const url = "http://localhost:5001/api/rate";
     const ratingInfo = {
       userId: userId,
       movieId: movieId,
-      rating: rating 
+      rating: rating
     };
-  
-  fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(ratingInfo),
-  })
-  .then((response) => response.json())
-  .then((data) => {
-    console.log("Success", data);
-    handleClose();
-    window.location.reload();
-  })
-  .catch((error) => {
-    console.error("Error:", error);
-  });
+
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(ratingInfo),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success", data);
+        handleClose();
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
 
 
