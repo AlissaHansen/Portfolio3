@@ -16,7 +16,7 @@ const RateComponent = ({ movie, userId, movieId, user }) => {
                     <DeleteRateButton user={user} movieId={movieId} />
                 </div>
             ) : (
-                <RateModalComponent movie={movie} movieId={movieId} userId={userId} user={user} />
+                <RateModalComponent movie={movie} movieId={movieId} userId={userId} />
             )}
         </div>
     );
