@@ -3,7 +3,7 @@ import React from "react";
 const UserBookmarkDisplay = ({user}) => {
     return (
         <div>
-            {user.movieBookmarkModels.map((bookmark, index) => (
+            {user && user.movieBookmarkModels.map((bookmark, index) => (
                 <div key={index}>
                     <p>{bookmark.movieInfoId}</p>
                 </div>
