@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import '../Stylesheets/GeneralStylesheet.css';
 
-const RateButton = ({ movie, movieId, userId, user }) => {
+const RateButton = ({ movie, movieId, userId }) => {
   const [show, setShow] = useState(false);
   const [rating, setRating] = useState("");
   const [error, setError] = useState("");
@@ -19,7 +19,7 @@ const RateButton = ({ movie, movieId, userId, user }) => {
     if (!token) {
       setError(<span>You need to be <a href="/login">Logged in</a>.</span>);
       return;
-  }
+    }
 
     const ratingNumber = Number(rating);
     if (isNaN(ratingNumber) || ratingNumber < 1 || ratingNumber > 10) {
