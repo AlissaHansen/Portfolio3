@@ -129,3 +129,42 @@ body {
     color: white; 
     margin: 50px 0 50px 75px;
 }
+
+.Movie-filter-buttons {
+    margin-bottom: 25px;
+    margin-top: 50px;
+    display: flex;
+    gap: 80px;
+    justify-content: center;
+}
+
+.Movie-rating {
+    color: white;
+    display: flex;
+    margin-left: 150px;
+    gap: 10px;
+}
+
+.footer {
+    color: white;
+    background-color: #222;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.Errorpage-div {
+    color: white;
+    margin-top: 100px;
+    text-align: center;
+}
+
+.Errorpage-div h1 {
+    font-size: 76px;
+    margin-bottom: 100px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.Errorpage-div img {
+    margin-bottom: 150px;
+}
