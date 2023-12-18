@@ -1,8 +1,8 @@
 import React from "react"; 
 
-const UserBookmarkDisplay = () => {
+const UserBookmarkDisplay = ({user}) => {
     return (
-        <div>hej</div>
+        <div>{user.creationTime}</div>
     );
 }
 export default UserBookmarkDisplay;

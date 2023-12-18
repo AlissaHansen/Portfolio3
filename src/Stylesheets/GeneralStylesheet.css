@@ -193,3 +193,10 @@ body {
 .Errorpage-div img {
     margin-bottom: 150px;
 }
+
+.Welcome-user {
+    color: white;
+    margin-top: 30px;
+    text-align: center;
+    text-decoration: #89CFF0 wavy underline;
+}

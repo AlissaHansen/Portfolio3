@@ -18,7 +18,7 @@ const FetchUserData = ({userId}) => {
     }, [userId]);
 
     return (
-        <UserBookmarkDisplay />
+        <UserBookmarkDisplay user = {user} />
     );
 }
 
