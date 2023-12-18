@@ -9,8 +9,6 @@ const [message, setMessage] = useState("");
 const handleRemove = (event) => {
     event.preventDefault(); 
 
-console.log("test", user);
-
 const removeRatingData = {
     userId: user.userId, 
     movieId: movieId
@@ -30,7 +28,7 @@ fetch("http://localhost:5001/api/rate", {
             setMessage("An error occurred");
         }
     })
-    .catch((error) => {
+    .catch(() => {
         setMessage("An error occurred");
     });
     
