@@ -8,8 +8,7 @@ const DeleteUserButton = ({ user }) => {
 
     const [errorMessage, setErrorMessage] = useState("");
 
-    const handleDelete = (event) => {
-        event.preventDefault();
+    const handleDelete = () => {
 
         fetch("http://localhost:5001/api/users?userid=" + user.userId, {
             method: "DELETE"
