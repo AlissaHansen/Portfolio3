@@ -218,3 +218,9 @@ body {
 .Bookmark-link:hover {
     text-decoration: #89CFF0 wavy underline;
 }
+.Profile-container {
+    display: flex;
+    gap: 100px;
+    margin-top: 100px;
+    justify-content: center;
+}
