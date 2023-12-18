@@ -10,7 +10,7 @@ const UserBookmarkDisplay = ({ user }) => {
                 <ul>
                     {user.movieBookmarkModels.map((bookmark, index) => (
                         <li key={index}>
-                            <Link to={"/movieinfo/" + bookmark.movieInfoId}>{bookmark.movieInfoId}</Link>                        </li>
+                            <Link className="Bookmark-link" to={"/movieinfo/" + bookmark.movieInfoId}>{bookmark.movieInfoId}</Link>                        </li>
                     ))}
                 </ul>
             }

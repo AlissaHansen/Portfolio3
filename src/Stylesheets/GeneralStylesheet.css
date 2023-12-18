@@ -210,5 +210,11 @@ body {
 .Bookmark-container h3 {
     font-weight: bold;
     text-decoration: white underline;
-
+}
+.Bookmark-link {
+    color: white;
+    text-decoration: none;
+}
+.Bookmark-link:hover {
+    text-decoration: #89CFF0 wavy underline;
 }
