@@ -1,9 +1,14 @@
 import React from "react";
+import FetchUserData from "./FetchUserData";
 
 const Profile = () => {
+
+    const userId = localStorage.getItem = ("userId");
+
     return (
         <div>
-            <h1>My profile page</h1>
+            <h1>Velkommen, {userId} </h1>
+            <FetchUserData userId = {userId} />
         </div>
     );
 }
