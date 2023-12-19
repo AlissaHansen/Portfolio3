@@ -46,7 +46,6 @@ const Signup = () => {
                 window.location.reload();
             } else {
                 setError("Invalid username or password...");
-                console.log("dårlig");
                 setPassword("");
             }
         })
