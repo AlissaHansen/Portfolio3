@@ -226,4 +226,5 @@ body {
 }
 .Delete-user-button {
     float: right;
+    margin-right: 40px;
 }
