@@ -49,8 +49,8 @@ const Signup = () => {
                 setPassword("");
             }
         })
-        .catch((error) => {
-            console.error("SENDE FEJL", error);
+        .catch(() => {
+            setError("An error occurred");
         });
     };
 
